@@ -78,7 +78,7 @@
 
 (defn map-over-map
   "map over a map and do something to each value
-  (reduce (fn [m [k v]] (assoc m k (inc v))) {} {:some 1 :map 2})"
+  #(reduce (fn [m [k v]] (assoc m k (inc v))) {} %)"
   [func map]
   (into {} (for [[key value] map] [key (func value)])))
 
